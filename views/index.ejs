@@ -21,8 +21,8 @@
             <form action="/" method="POST">
                 <div class="input-field">
                     <input type="number" min="1" max="" name="price">
-                    <input type="submit" value="sell" name="sell" class="btn btn-danger">
-                    <input type="submit" value="buy" name="sell" class="btn btn-success">
+                    <input type="submit" value="sell" name="side" class="btn btn-danger">
+                    <input type="submit" value="buy" name="side" class="btn btn-success">
                 </div>
             </form>
         </div>
@@ -33,6 +33,10 @@
         <ul class="available-list">
             <!-- <li class="sell">Sell: 12</li>
             <li class="buy">buy: 14</li> -->
+                <%  data.forEach((item)=>{ %>
+                    <li><%= item.side %> : <%= item.price%> </li>
+              <% }) %>
+                    
         </ul>
     </div>
 

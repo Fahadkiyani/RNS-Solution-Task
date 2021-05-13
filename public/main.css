@@ -17,6 +17,7 @@ input:nth-child(1){
 }
 input[type=submit]{
     padding: 6px 20px;
+    margin-bottom: 5px;
 }
 
 .available-trade-container{
@@ -33,14 +34,19 @@ input[type=submit]{
     flex-direction: row;
     justify-content: flex-start;
     padding: 0 5px;
+    max-width: 80%;
     list-style-type: none;
+    flex-wrap: wrap;
 }
 li{
     margin-left: 20px;
     border: 1px solid grey;
     border-radius: 20px;
-    padding: 12px;
-}
-li:nth-child(1){
-    margin-left: 0px;
+    display:flex;
+    flex-direction: row;
+    width: 300px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
