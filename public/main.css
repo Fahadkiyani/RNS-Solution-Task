@@ -50,3 +50,6 @@ li{
     align-items: center;
     margin-top: 20px;
 }
+.hint p{
+    font-size: 0.7rem;
+}
