@@ -1,6 +1,3 @@
-
-
-
 /* Binary Search Tree */
 class Node {
   constructor(data, left = null, right = null) {
@@ -12,7 +9,7 @@ class Node {
 class BST {
   constructor() {
     this.root = null;
-    console.log("BST Constructor Ran");
+
   }
   add(data) {
     // delete this line
@@ -25,8 +22,6 @@ class BST {
         if (data < node.data) {
           if (node.left === null) {
             node.left = new Node(data.price);
-            // delete 3 lines
-                // Object.keys(node.left).forEach((prop)=> console.log(prop));
                 console.log(this.root);
                 
             return;
@@ -44,7 +39,6 @@ class BST {
           return null;
         }
       };
-      // console.log("this is before returned function call" + node.right);
       return searchTree(node);
     }
   }
