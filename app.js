@@ -54,6 +54,7 @@ app.post('/',(req,res)=>{
   });
   
   if (side === "sell") {
+    client.lpush("sell",price);
     // Matching, saving and deleting data in redis.
     client.lrange('buy',0,-1, (err,reply)=>{
       if (err) {
@@ -70,7 +71,7 @@ app.post('/',(req,res)=>{
               }})
           } else {
             console.log("could not find the price in redisDB");
-            client.lpush("sell",price);
+            
           }
         });
       }
@@ -99,6 +100,7 @@ app.post('/',(req,res)=>{
     });
 
     }else if(side === "buy"){
+      client.lpush("buy",price);
       // saving incoming buy data to redis Database.
       client.lrange('sell',0,-1,(err,reply)=>{
         if (err) {
