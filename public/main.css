@@ -2,7 +2,12 @@
     padding: 0%;
     margin: 0%;
 }
-
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .buyNsell-container{
     width: 100%;
     height: 30vh;
@@ -19,25 +24,6 @@ input[type=submit]{
     padding: 6px 20px;
     margin-bottom: 5px;
 }
-
-.available-trade-container{
-    width: 100%;
-    min-height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 5px 15px;
-}
-.available-list{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0 5px;
-    max-width: 80%;
-    list-style-type: none;
-    flex-wrap: wrap;
-}
 li{
     margin-left: 20px;
     border: 1px solid grey;
@@ -52,4 +38,88 @@ li{
 }
 .hint p{
     font-size: 0.7rem;
+}
+.available-trade-container{
+    /* width: 100%; */
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+    max-width: 600px;
+    margin-top: 50px;
+    border: 1px solid #dee;
+
+}
+.price-container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+/* border: 1px solid #dee; */
+
+}
+.sell-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    padding: 50px;
+}
+.buy-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    padding: 50px;
+}
+.success{
+    color: rgb(56, 128, 80);
+    border: 1px solid #dee;
+    justify-content: center;
+    align-items: center;
+    padding:8px 25px;
+    margin-top: 5px;
+}.success:hover{
+    cursor: pointer;
+    background-color: #999;
+    color: white;
+}
+.danger{
+    color: #dc3545;
+    border: 1px solid #dee;
+    justify-content: center;
+    align-items: center;
+    padding:8px 25px;
+    margin-top: 5px;
+}.danger:hover{
+cursor: pointer;
+background-color: #999;
+color: white;
+}
+.table-heading{
+    border: 1px solid #dee;
+    justify-content: center;
+    align-items: center;
+    padding:8px 25px;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+}
+tr{
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.sell-tb{
+    /* color: red; */
+}
+.buy-tb{
+    /* color: rgb(56, 128, 80); */
+}
+.available-trade-container p:nth-child(2){
+    color: rgb(21, 153, 32);
 }

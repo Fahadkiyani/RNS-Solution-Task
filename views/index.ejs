@@ -1,51 +1,97 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RNS-TASK</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-        <link rel="stylesheet" href="/static/main.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/static/main.css" />
+  </head>
 
-<body>
+  <body>
     <noscript>Please enable javascript to run this application.</noscript>
 
     <div class="buyNsell-container">
-        <div class="form">
-            <div class="hint">
-                <p>Hint: Please initiate an order buy or sell and then vice versa to trade successfully </p>
-            </div>
-            <form action="/" method="POST">
-                <div class="input-field">
-                    <input type="number" min="1" max="" name="price">
-                    <input type="submit" value="sell" name="side" class="btn btn-danger">
-                    <input type="submit" value="buy" name="side" class="btn btn-success">
-                </div>
-            </form>
+      <div class="form">
+        <div class="hint">
+          <p>
+            Hint: Please initiate an order buy or sell and then vice versa to
+            trade successfully
+          </p>
         </div>
+        <form action="/" method="POST">
+          <div class="input-field">
+            <input type="number" min="1" max="" name="price" autofocus/>
+            <input
+              type="submit"
+              value="sell"
+              name="side"
+              class="btn btn-danger"
+            />
+            <input
+              type="submit"
+              value="buy"
+              name="side"
+              class="btn btn-success"
+            />
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="available-trade-container">
-        <p>Available to trade:</p>
-        <ul class="available-list">
-            
-                <%  data.forEach((item)=>{ %>
-                    <li><%= item.side %> : <%= item.price%> </li>
-              <% }) %>
-                    
-        </ul>
+      <p>Available to trade:</p>
+      <p><%= transactionSuccess %></p>
+      <div class="price-container">
+        <div class="sell-container">
+            <table>
+                <thead>
+                    <tr>
+                      <th scope="col" class="sell-tb table-heading">Sell</th>
+                    </tr>
+                  </thead>
+            <tbody>
+                <% if(sellData.length >= 1){ %>
+              <% for(let i = 0; i < sellData.length; i++){ %>
+              <tr>
+                <td class="danger"><%= sellData[i] %></td>
+              </tr>
+              <% }} %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="buy-container">
+          <table>
+            <thead>
+                <tr>
+                  <th scope="col" class="buy-tb table-heading">Buy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% if(buyData.length >= 1){ %>
+                <% for(let i = 0; i < buyData.length; i++){ %>
+                    <tr>
+                      <td class="success"><%= buyData[i] %></td>
+                    </tr>
+                    <% }} %>
+              </tbody>
+         </table>
+          </table>
+        </div>
+      </div>
     </div>
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8"
+      crossorigin="anonymous"
+    ></script>
     <script src="/static/index.js"></script>
-
-</body>
-
+  </body>
 </html>
