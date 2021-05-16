@@ -26,7 +26,7 @@
         </div>
         <form action="/" method="POST">
           <div class="input-field">
-            <input type="number" min="1" max="" name="price" autofocus/>
+            <input type="number" min="1" max="" name="price" autofocus id="inputfield"/>
             <input
               type="submit"
               value="sell"
@@ -58,7 +58,7 @@
             <tbody>
                 <% if(sellData.length >= 1){ %>
               <% for(let i = 0; i < sellData.length; i++){ %>
-              <tr>
+              <tr class="sell-Price-tr">
                 <td class="danger"><%= sellData[i] %></td>
               </tr>
               <% }} %>
