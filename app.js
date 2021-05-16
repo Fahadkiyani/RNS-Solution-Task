@@ -13,6 +13,7 @@ const RedCache = require('./middleware/RedCache')
 // const order = require('./schema/orderschema');
 const orders = require('./schema/orderschema');
 const BST_SAVE_DATA = require('./middleware/savedatatodb');
+const { add } = require('./bst');
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -34,12 +35,15 @@ app.post('/', BST_SAVE_DATA, (req, res) => {
   
   let side = req.body.side;
   let price = req.body.price;
+  // save data to bst
+  let bst_data = {side:side,price:price};
+  bst.add(bst_data);
   // request params assigned to model keys
   const order = new orders({
     side: side,
     price: price
   });
-
+  
   if (side === "sell"){
     // Matching, saving and deleting data in redis.
     orders.findOne({
@@ -58,7 +62,8 @@ app.post('/', BST_SAVE_DATA, (req, res) => {
         orders.deleteMany({
           __v: 0
         }).then(function () {
-          console.log("Data deleted from mongodb"); // Success
+          bst.remove(bst_data);
+          console.log("Data deleted from mongodb and binary tree"); // Success
         }).catch(function (error) {
           console.log(error); // Failure
         });
@@ -81,13 +86,15 @@ app.post('/', BST_SAVE_DATA, (req, res) => {
       orders.deleteMany({
         __v: 0
       }).then(function () {
-        console.log("Data deleted from mongodb"); // Success
+        bst.remove(bst_data);
+        console.log("Data deleted from mongodb and binary tree"); // Success
       }).catch(function (error) {
         console.log(error); // Failure
       });
     }
   });
-}}
+}
+}
 );
 
 

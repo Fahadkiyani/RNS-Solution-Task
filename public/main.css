@@ -88,7 +88,7 @@ align-items: center;
     background-color: #999;
     color: white;
 }
-.danger{
+tbody .danger{
     color: #dc3545;
     border: 1px solid #dee;
     justify-content: center;

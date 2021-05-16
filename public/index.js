@@ -1,3 +1,4 @@
+// disable enter btn on html body
 let winEnv = document.querySelector('body');
 
 winEnv.addEventListener("keydown",(e)=>{
@@ -5,4 +6,3 @@ winEnv.addEventListener("keydown",(e)=>{
         e.preventDefault();
     }
 });
-
